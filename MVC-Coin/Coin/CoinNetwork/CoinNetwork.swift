@@ -17,7 +17,6 @@ class CoinNetwork {
         Network.shared.getData(url: url) { (json) in
             do {
                 let response = try GetCoin(json: json)
-               // print(json)
                 comletion(response)
             } catch {
                 print(error)
