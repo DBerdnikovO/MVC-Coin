@@ -65,11 +65,14 @@ class Cell: UITableViewCell {
     }
     
     func configure(with viewModle: Coin) {
-        nameLabel.text = viewModle.name
-        array += [viewModle.name]
-        let formatter = ViewController.numberFormatter
-        var price = viewModle.price_usd
-        let pricestring = formatter.string(from: NSNumber(value: price ?? 0 ))
-        priceLabel.text = pricestring
+        if viewModle.price_usd != nil {
+            nameLabel.text = viewModle.name
+            array += [viewModle.name]
+            let formatter = ViewController.numberFormatter
+            let price = viewModle.price_usd
+            print("ITS PRICE\(price)")
+            let pricestring = formatter.string(from: NSNumber(value: price ?? 0 ))
+            priceLabel.text = pricestring
+        }
     }
 }
